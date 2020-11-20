@@ -6,7 +6,7 @@
 // 1. Scriviamo sempre in italiano i passaggi che vogliamo fare
 // 2. Scriviamo sempre solo un pezzetto di codice alla volta, se funziona allora andiamo avanti.
 
-var userWord = prompt('inserisci una parolan o una frase per verificare se è palindroma');
+var userWord = prompt('Inserisci una parola o una frase per verificare se è palindroma');
 
 /**
  * 
