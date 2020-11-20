@@ -8,10 +8,6 @@
 
 var userWord = prompt('Inserisci una parola o una frase per verificare se è palindroma');
 
-/**
- * 
- * @ {*} 
- */
 function palindromeChecker(word) {
     //ho scoperto l'esistenza delle RegExp che ti permettono di controllare la sintassi
     //ho sfruttato la cosa per selezionare ed eliminare gli spazi dalle frasi
