@@ -14,6 +14,9 @@
 
 // SVOLGIMENTO
 
+// Chiedi nome
+var userName = prompt('come ti chiami?');
+
 /**
  * FUNZIONE P/D
  * 
@@ -36,7 +39,7 @@ function userLuckChoise() {
             userLuck = ("p");
             i++;
         } else if (userLuck === "d") {
-            userLuck = ("p");
+            userLuck = ("d");
             i++;
         } else {
             var userLuck = prompt('Hai inserito un valore non ammesso; per favore digita "P" per scegliere pari o "D" per scegliere dispari');
@@ -44,11 +47,13 @@ function userLuckChoise() {
         }
     }
 
-    return userLuck;
+    finallUserWord = userLuck;
+    // console.log(finallUserWord);
+    return finallUserWord;
 }
 
 /**
- * FUNZIONE NUMERO FORTUNATO
+ * FUNZIONE NUMERO FORTUNATO UTENTE
  * 
  * 
  * questa funzione regola e verifica la scelta tra: 
@@ -69,7 +74,6 @@ function userNumberChoise() {
             var userNumber = Number(prompt('Hai inserito un valore non ammesso; scegli un numero da 1 a 5'));
         }
     }
-    // console.log(userNumber);
 
     finallUserNumber = 0;
     checkNumber = 0;
@@ -78,35 +82,71 @@ function userNumberChoise() {
             finallUserNumber++;
         }
     }
-    console.log(finallUserNumber);
+    // console.log(finallUserNumber);
     return finallUserNumber;
 }
 
 /**
- * DUNZIONE NUMERO FORTUNATO COMPUTER
+ * FUNZIONE NUMERO FORTUNATO COMPUTER
  * 
  * la funzione si occupa di generare un numero randomico compreso tra 1 e 5;
  * questo numero fortunato verrà sommato a quello selezionato dall'utente.
  */
 function computerNumber() {
     computerRandomNumber = Number(Math.floor(Math.random() * 5) + 1);
-    console.log(computerRandomNumber);
+    // console.log(computerRandomNumber);
 
     return computerRandomNumber;
 }
 
+/**
+ * SOMMA NUMERI FORTUNATI
+ * 
+ * questa funzione somma i numeri fortunati tra loro
+ */
 function sumUserCp(num1, num2) {
     var result = num1 + num2;
-    console.log("somma " + result);
-    return result;
+
+    finallNumber = 0;
+    checker = 0;
+    while (finallNumber < result) {
+        if (checker < result) {
+            finallNumber++;
+        }
+    }
+    // console.log(finallNumber);
+    return finallNumber;
 }
 
+/**
+ * FUNZIONE DI COMPARAZIONE CONDIZIONI DI VITTORIA
+ */
+function winningConditios() {
+
+    if (finallUserWord == 'p' && finallNumber % 2 === 0) {
+        console.log("complimenti " + userName + " hai vinto");
+    } else if (finallUserWord == 'd' && finallNumber % 2 !== 0){
+        console.log("complimenti " + userName + " hai vinto");
+    } else if (finallUserWord == 'd' && finallNumber % 2 === 0){
+        console.log("spiacente " + userName + " hai perso");
+    } else if (finallUserWord == 'p' && finallNumber % 2 !== 0){
+        console.log("spiacente " + userName + " hai perso");
+    }
+}
+
+/**
+ * FUNZIONE DI ESECUZINE 
+ * 
+ * raccoglie al suo interno tutte le funzioni precedenti e le esegue in sequenza.
+ */
+function exeFunction() {
+    userLuckChoise();
+    userNumberChoise();
+    computerNumber();
+    sumUserCp(finallUserNumber, computerRandomNumber);
+    winningConditios();
+}
+
+
 // ESECUZIONE GIOCO
-
-userLuckChoise();
-userNumberChoise();
-computerNumber();
-sumUserCp(finallUserNumber, computerRandomNumber);
-
-
-// console.log(finallUserNumber);
+exeFunction();
