@@ -1,19 +1,3 @@
-// Pari e Dispari
-// L’utente sceglie pari o dispari e inserisce un numero da 1 a 5.
-// Generiamo un numero random (sempre da 1 a 5) per il computer (usando una funzione).
-// Sommiamo i due numeri
-// Stabiliamo se la somma dei due numeri è pari o dispari (usando una funzione)
-// Dichiariamo chi ha vinto.
-
-// Consigli del giorno
-// 1. Scriviamo sempre in italiano i passaggi che vogliamo fare
-// 2. Scriviamo sempre solo un pezzetto di codice alla volta, se funziona allora andiamo avanti.
-
-
-
-
-// SVOLGIMENTO
-
 // Chiedi nome
 var userName = prompt('come ti chiami?');
 userLuck = prompt('digita "P" per scegliere pari o "D" per scegliere dispari');
@@ -28,7 +12,6 @@ userNumber = Number(prompt('inserisci un numero da 1 a 5'));
  * 1) pari e dispari;
  */
 function userLuckChoise(pOd) {
-
     pOd = pOd.toLowerCase();
 
     i=0;
@@ -46,7 +29,6 @@ function userLuckChoise(pOd) {
             pOd = pOd.toLowerCase();
         }
     }
-
     finallUserWord = pOd;
     // console.log(finallUserWord);
     return finallUserWord;
@@ -61,9 +43,6 @@ function userLuckChoise(pOd) {
  * 2) numero fortunato compreso tra 1 e 5;
  */
 function userNumberChoise(nF) {
-    // numero fortunato
-    // userNumber = Number(prompt('inserisci un numero da 1 a 5'));
-
     index=0;
     numeroSbagliato=1;
 
@@ -95,7 +74,6 @@ function userNumberChoise(nF) {
 function computerNumber() {
     computerRandomNumber = Number(Math.floor(Math.random() * 5) + 1);
     // console.log(computerRandomNumber);
-
     return computerRandomNumber;
 }
 
@@ -122,7 +100,6 @@ function sumUserCp(num1, num2) {
  * FUNZIONE DI COMPARAZIONE CONDIZIONI DI VITTORIA
  */
 function winningConditios() {
-
     if (finallUserWord == 'p' && finallNumber % 2 === 0) {
         console.log("complimenti " + userName + " hai vinto");
     } else if (finallUserWord == 'd' && finallNumber % 2 !== 0){

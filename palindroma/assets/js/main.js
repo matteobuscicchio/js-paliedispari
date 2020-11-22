@@ -1,11 +1,3 @@
-// Parole o frasi palidrome = anna | otto | oro | dvd | osso | area | ossesso | ottetto | i topi non avevano nipoti |
-// Chiedere all’utente di inserire una parola
-// Creare una funzione per capire se la parola inserita è palindroma
-
-// Consigli del giorno
-// 1. Scriviamo sempre in italiano i passaggi che vogliamo fare
-// 2. Scriviamo sempre solo un pezzetto di codice alla volta, se funziona allora andiamo avanti.
-
 var userWord = prompt('Inserisci una parola o una frase per verificare se è palindroma');
 
 function palindromeChecker(word) {
