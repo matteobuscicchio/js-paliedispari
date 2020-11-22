@@ -16,6 +16,8 @@
 
 // Chiedi nome
 var userName = prompt('come ti chiami?');
+userLuck = prompt('digita "P" per scegliere pari o "D" per scegliere dispari');
+userNumber = Number(prompt('inserisci un numero da 1 a 5'));
 
 /**
  * FUNZIONE P/D
@@ -25,29 +27,27 @@ var userName = prompt('come ti chiami?');
  * 
  * 1) pari e dispari;
  */
-function userLuckChoise() {
+function userLuckChoise(pOd) {
 
-    // pari e dispari
-    var userLuck = prompt('digita "P" per scegliere pari o "D" per scegliere dispari');
-    userLuck = userLuck.toLowerCase();
+    pOd = pOd.toLowerCase();
 
     i=0;
     errore=1;
 
     while (i < errore) {
-        if (userLuck === "p") {
-            userLuck = ("p");
+        if (pOd === "p") {
+            pOd = ("p");
             i++;
-        } else if (userLuck === "d") {
-            userLuck = ("d");
+        } else if (pOd === "d") {
+            pOd = ("d");
             i++;
         } else {
-            var userLuck = prompt('Hai inserito un valore non ammesso; per favore digita "P" per scegliere pari o "D" per scegliere dispari');
-            userLuck = userLuck.toLowerCase();
+            var pOd = prompt('Hai inserito un valore non ammesso; per favore digita "P" per scegliere pari o "D" per scegliere dispari');
+            pOd = pOd.toLowerCase();
         }
     }
 
-    finallUserWord = userLuck;
+    finallUserWord = pOd;
     // console.log(finallUserWord);
     return finallUserWord;
 }
@@ -60,18 +60,18 @@ function userLuckChoise() {
  * 
  * 2) numero fortunato compreso tra 1 e 5;
  */
-function userNumberChoise() {
+function userNumberChoise(nF) {
     // numero fortunato
-    userNumber = Number(prompt('inserisci un numero da 1 a 5'));
+    // userNumber = Number(prompt('inserisci un numero da 1 a 5'));
 
     index=0;
     numeroSbagliato=1;
 
     while (index < numeroSbagliato) {
-        if (userNumber === 1 || userNumber === 2 || userNumber === 3 || userNumber === 4 || userNumber === 5) { //ho usato quest asoluzione solo perchè sapevo di avere 5 numeri.
+        if (nF === 1 || nF === 2 || nF === 3 || nF === 4 || nF === 5) { //ho usato quest asoluzione solo perchè sapevo di avere 5 numeri.
             index++;
         } else {
-            var userNumber = Number(prompt('Hai inserito un valore non ammesso; scegli un numero da 1 a 5'));
+            var nF = Number(prompt('Hai inserito un valore non ammesso; scegli un numero da 1 a 5'));
         }
     }
 
@@ -114,7 +114,7 @@ function sumUserCp(num1, num2) {
             finallNumber++;
         }
     }
-    // console.log(finallNumber);
+    console.log(finallNumber);
     return finallNumber;
 }
 
@@ -127,9 +127,7 @@ function winningConditios() {
         console.log("complimenti " + userName + " hai vinto");
     } else if (finallUserWord == 'd' && finallNumber % 2 !== 0){
         console.log("complimenti " + userName + " hai vinto");
-    } else if (finallUserWord == 'd' && finallNumber % 2 === 0){
-        console.log("spiacente " + userName + " hai perso");
-    } else if (finallUserWord == 'p' && finallNumber % 2 !== 0){
+    } else {
         console.log("spiacente " + userName + " hai perso");
     }
 }
@@ -140,13 +138,12 @@ function winningConditios() {
  * raccoglie al suo interno tutte le funzioni precedenti e le esegue in sequenza.
  */
 function exeFunction() {
-    userLuckChoise();
-    userNumberChoise();
+    userLuckChoise(userLuck);
+    userNumberChoise(userNumber);
     computerNumber();
     sumUserCp(finallUserNumber, computerRandomNumber);
     winningConditios();
 }
-
 
 // ESECUZIONE GIOCO
 exeFunction();
