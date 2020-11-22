@@ -15,12 +15,10 @@ userLuck = userLuck.toLowerCase();
 i=0;
 errore=1;
 while (i < errore) {
-    if (userLuck == "p") {
-        console.log('bravo hai scelto p');
-        errore--;
-    } else if (userLuck == "d") {
-        console.log('bravo hai scelto d');
-        errore--;
+    if (userLuck === "p") {
+        i++;
+    } else if (userLuck === "d") {
+        i++;
     } else {
         var userLuck = prompt('Hai inserito un valore non ammesso; per favore digita "P" per scegliere pari o "D" per scegliere dispari');
         userLuck = userLuck.toLowerCase();
@@ -28,6 +26,19 @@ while (i < errore) {
 }
 
 userNumber = Number(prompt('inserisci un numero da 1 a 5'));
+
+
+index=0;
+numeroSbagliato=1;
+while (index < numeroSbagliato) {
+    if (userNumber === 0) {
+        var userNumber = Number(prompt('Hai inserito un valore non ammesso; scegli un numero da 1 a 5'));
+    } else if (userNumber === 1 || userNumber === 2 || userNumber === 3 || userNumber === 4 || userNumber === 5) {
+        index++;
+    } else {
+        var userNumber = Number(prompt('Hai inserito un valore non ammesso; scegli un numero da 1 a 5'));
+    }
+}
 
 // function computerNumber() {
 //     computerRandomNumber = Math.floor(Math.random() * 5) + 1;
