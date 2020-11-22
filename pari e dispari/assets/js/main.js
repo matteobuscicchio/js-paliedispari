@@ -15,16 +15,14 @@
 // SVOLGIMENTO
 
 /**
- * FUNZIONE P/D E NUMERO FORTUNATO
+ * FUNZIONE P/D
  * 
  * 
  * questa funzione regola e verifica la scelta tra: 
  * 
  * 1) pari e dispari;
- * 2) numero fortunato compreso tra 1 e 5;
- * 
  */
-function userChoise() {
+function userLuckChoise() {
 
     // pari e dispari
     var userLuck = prompt('digita "P" per scegliere pari o "D" per scegliere dispari');
@@ -35,16 +33,29 @@ function userChoise() {
 
     while (i < errore) {
         if (userLuck === "p") {
-        i++;
+            userLuck = ("p");
+            i++;
         } else if (userLuck === "d") {
-        i++;
+            userLuck = ("p");
+            i++;
         } else {
-        var userLuck = prompt('Hai inserito un valore non ammesso; per favore digita "P" per scegliere pari o "D" per scegliere dispari');
-        userLuck = userLuck.toLowerCase();
+            var userLuck = prompt('Hai inserito un valore non ammesso; per favore digita "P" per scegliere pari o "D" per scegliere dispari');
+            userLuck = userLuck.toLowerCase();
         }
     }
-    console.log(userLuck);
 
+    return userLuck;
+}
+
+/**
+ * FUNZIONE NUMERO FORTUNATO
+ * 
+ * 
+ * questa funzione regola e verifica la scelta tra: 
+ * 
+ * 2) numero fortunato compreso tra 1 e 5;
+ */
+function userNumberChoise() {
     // numero fortunato
     userNumber = Number(prompt('inserisci un numero da 1 a 5'));
 
@@ -53,55 +64,49 @@ function userChoise() {
 
     while (index < numeroSbagliato) {
         if (userNumber === 1 || userNumber === 2 || userNumber === 3 || userNumber === 4 || userNumber === 5) { //ho usato quest asoluzione solo perchè sapevo di avere 5 numeri.
-        index++;
+            index++;
         } else {
-        var userNumber = Number(prompt('Hai inserito un valore non ammesso; scegli un numero da 1 a 5'));
+            var userNumber = Number(prompt('Hai inserito un valore non ammesso; scegli un numero da 1 a 5'));
         }
     }
-    console.log(userNumber);
+    // console.log(userNumber);
+
+    finallUserNumber = 0;
+    checkNumber = 0;
+    while (finallUserNumber < userNumber) {
+        if (checkNumber < userNumber) {
+            finallUserNumber++;
+        }
+    }
+    console.log(finallUserNumber);
+    return finallUserNumber;
 }
 
-//HO DECISO DI INSERIRE ENTRAMBI I CICLI IN UNA FUNZIONE SENZA DICHIARARNE L'ARGOMENTO
-// var userLuck = prompt('digita "P" per scegliere pari o "D" per scegliere dispari');
-// userLuck = userLuck.toLowerCase();
+/**
+ * DUNZIONE NUMERO FORTUNATO COMPUTER
+ * 
+ * la funzione si occupa di generare un numero randomico compreso tra 1 e 5;
+ * questo numero fortunato verrà sommato a quello selezionato dall'utente.
+ */
+function computerNumber() {
+    computerRandomNumber = Number(Math.floor(Math.random() * 5) + 1);
+    console.log(computerRandomNumber);
 
-// i=0;
-// errore=1;
-// while (i < errore) {
-//     if (userLuck === "p") {
-//         i++;
-//     } else if (userLuck === "d") {
-//         i++;
-//     } else {
-//         var userLuck = prompt('Hai inserito un valore non ammesso; per favore digita "P" per scegliere pari o "D" per scegliere dispari');
-//         userLuck = userLuck.toLowerCase();
-//     }
-// }
+    return computerRandomNumber;
+}
 
-// userNumber = Number(prompt('inserisci un numero da 1 a 5'));
-
-
-// index=0;
-// numeroSbagliato=1;
-// while (index < numeroSbagliato) {
-//     if (userNumber === 0) {
-//         var userNumber = Number(prompt('Hai inserito un valore non ammesso; scegli un numero da 1 a 5'));
-//     } else if (userNumber === 1 || userNumber === 2 || userNumber === 3 || userNumber === 4 || userNumber === 5) {
-//         index++;
-//     } else {
-//         var userNumber = Number(prompt('Hai inserito un valore non ammesso; scegli un numero da 1 a 5'));
-//     }
-// }
-
-
-
-// function computerNumber() {
-//     computerRandomNumber = Math.floor(Math.random() * 5) + 1;
-// }
-
-
+function sumUserCp(num1, num2) {
+    var result = num1 + num2;
+    console.log("somma " + result);
+    return result;
+}
 
 // ESECUZIONE GIOCO
 
-userChoise();
+userLuckChoise();
+userNumberChoise();
+computerNumber();
+sumUserCp(finallUserNumber, computerRandomNumber);
 
+
+// console.log(finallUserNumber);
